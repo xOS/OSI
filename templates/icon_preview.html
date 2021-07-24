@@ -12,7 +12,7 @@
 	icon_size = (image_width - total_spacing) / icon_count
 %>
 
-<link href="font-logos.css" rel="stylesheet">
+<link href="osi.css" rel="stylesheet">
 
 <style>
 	.preview-icon {
@@ -33,6 +33,6 @@
 
 <body>
 	<div class="icon-container">
-		<% icons.each do |name, value| %><span class="preview-icon fl-<%= name %>"></span><% end %>
+		<% icons.each do |name, value| %><span class="preview-icon os-<%= name %>"></span><% end %>
 	</div>
 </body>

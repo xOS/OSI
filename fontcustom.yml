@@ -4,8 +4,8 @@
 #   `fontcustom help` or visiting <http://fontcustom.com>.
 # --------------------------------------------------------------------------- #
 
-font_name: font-logos
-css_selector: .fl-{{glyph}}
+font_name: osi
+css_selector: .os-{{glyph}}
 preprocessor_path: ""
 autowidth: false
 no_hash: true
@@ -28,7 +28,7 @@ input:
 
 output:
   fonts: assets                              # required
-  font-logos.css: assets
+  osi.css: assets
 
 
 # --------------------------------------------------------------------------- #
@@ -40,5 +40,5 @@ output:
 
 templates:
  - preview
- - font-logos.css
+ - osi.css
  - icon_preview.html
