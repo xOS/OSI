@@ -19,7 +19,7 @@ fonts in your project and use the CSS classes listed below.
 
 Alternatively just link to it using a CDN such as [jsDelivr](//jsdelivr.com):
 
-	<link href="//cdn.jsdelivr.net/npm/osi@0.20/assets/osi.css" rel="stylesheet">
+	<link href="//cdn.jsdelivr.net/gh/xOS/OSI@v0.20/assets/osi.css" rel="stylesheet">
 
 ## Usage ##
 
