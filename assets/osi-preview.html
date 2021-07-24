@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>osi glyphs preview</title>
+
+    <style>
+      /* Page Styles */
+
+      * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fff;
+        color: #444;
+        font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      a,
+      a:visited {
+        color: #888;
+        text-decoration: underline;
+      }
+      a:hover,
+      a:focus { color: #000; }
+
+      header {
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      header h1 {
+        color: #888;
+        float: left;
+        font-size: 36px;
+        font-weight: 300;
+      }
+
+      header a {
+        float: right;
+        font-size: 14px;
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+        min-width: 960px;
+        padding: 0 40px;
+        width: 90%;
+      }
+
+      .glyph {
+        border-bottom: 1px dotted #ccc;
+        padding: 10px 0 20px;
+        margin-bottom: 20px;
+      }
+
+      .preview-glyphs { vertical-align: bottom; }
+
+      .preview-scale {
+        color: #888;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+
+      .step {
+        display: inline-block;
+        line-height: 1;
+        position: relative;
+        width: 10%;
+      }
+
+      .step .letters,
+      .step i {
+        -webkit-transition: opacity .3s;
+        -moz-transition: opacity .3s;
+        -ms-transition: opacity .3s;
+        -o-transition: opacity .3s;
+        transition: opacity .3s;
+      }
+
+      .step:hover .letters { opacity: 1; }
+      .step:hover i { opacity: .3; }
+
+      .letters {
+        opacity: .3;
+        position: absolute;
+      }
+
+      .characters-off .letters { display: none; }
+      .characters-off .step:hover i { opacity: 1; }
+
+      
+      .size-12 { font-size: 12px; }
+      
+      .size-14 { font-size: 14px; }
+      
+      .size-16 { font-size: 16px; }
+      
+      .size-18 { font-size: 18px; }
+      
+      .size-21 { font-size: 21px; }
+      
+      .size-24 { font-size: 24px; }
+      
+      .size-36 { font-size: 36px; }
+      
+      .size-48 { font-size: 48px; }
+      
+      .size-60 { font-size: 60px; }
+      
+      .size-72 { font-size: 72px; }
+      
+
+      .usage { margin-top: 10px; }
+
+      .usage input {
+        font-family: monospace;
+        margin-right: 3px;
+        padding: 2px 5px;
+        text-align: center;
+      }
+
+      .usage .point { width: 150px; }
+
+      .usage .class { width: 250px; }
+
+      footer {
+        color: #888;
+        font-size: 12px;
+        padding: 20px 0;
+      }
+
+      /* Icon Font: osi */
+
+      @font-face {
+  font-family: "osi";
+  src: url("./osi.eot");
+  src: url("./osi.eot?#iefix") format("embedded-opentype"),
+       url("./osi.woff2") format("woff2"),
+       url("./osi.woff") format("woff"),
+       url("./osi.ttf") format("truetype"),
+       url("./osi.svg#osi") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "osi";
+    src: url("./osi.svg#osi") format("svg");
+  }
+}
+
+      [data-icon]:before { content: attr(data-icon); }
+
+      [data-icon]:before,
+      .os-almalinux:before,
+.os-alpine:before,
+.os-aosc:before,
+.os-apple:before,
+.os-archlabs:before,
+.os-archlinux:before,
+.os-artix:before,
+.os-budgie:before,
+.os-centos:before,
+.os-coreos:before,
+.os-debian:before,
+.os-deepin:before,
+.os-devuan:before,
+.os-docker:before,
+.os-elementary:before,
+.os-fedora:before,
+.os-fedora-inverse:before,
+.os-ferris:before,
+.os-flathub:before,
+.os-freebsd:before,
+.os-gentoo:before,
+.os-gnu-guix:before,
+.os-illumos:before,
+.os-kali-linux:before,
+.os-linuxmint:before,
+.os-linuxmint-inverse:before,
+.os-mageia:before,
+.os-mandriva:before,
+.os-manjaro:before,
+.os-nixos:before,
+.os-openbsd:before,
+.os-opensuse:before,
+.os-pop-os:before,
+.os-raspberry-pi:before,
+.os-redhat:before,
+.os-rocky-linux:before,
+.os-sabayon:before,
+.os-slackware:before,
+.os-slackware-inverse:before,
+.os-snappy:before,
+.os-solus:before,
+.os-tux:before,
+.os-ubuntu:before,
+.os-ubuntu-inverse:before,
+.os-void:before,
+.os-win10:before,
+.os-zorin:before {
+        display: inline-block;
+  font-family: "osi";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+      }
+
+      .os-almalinux:before { content: "\f100"; }
+.os-alpine:before { content: "\f101"; }
+.os-aosc:before { content: "\f102"; }
+.os-apple:before { content: "\f103"; }
+.os-archlabs:before { content: "\f104"; }
+.os-archlinux:before { content: "\f105"; }
+.os-artix:before { content: "\f106"; }
+.os-budgie:before { content: "\f107"; }
+.os-centos:before { content: "\f108"; }
+.os-coreos:before { content: "\f109"; }
+.os-debian:before { content: "\f10a"; }
+.os-deepin:before { content: "\f10b"; }
+.os-devuan:before { content: "\f10c"; }
+.os-docker:before { content: "\f10d"; }
+.os-elementary:before { content: "\f10e"; }
+.os-fedora:before { content: "\f10f"; }
+.os-fedora-inverse:before { content: "\f110"; }
+.os-ferris:before { content: "\f111"; }
+.os-flathub:before { content: "\f112"; }
+.os-freebsd:before { content: "\f113"; }
+.os-gentoo:before { content: "\f114"; }
+.os-gnu-guix:before { content: "\f115"; }
+.os-illumos:before { content: "\f116"; }
+.os-kali-linux:before { content: "\f117"; }
+.os-linuxmint:before { content: "\f118"; }
+.os-linuxmint-inverse:before { content: "\f119"; }
+.os-mageia:before { content: "\f11a"; }
+.os-mandriva:before { content: "\f11b"; }
+.os-manjaro:before { content: "\f11c"; }
+.os-nixos:before { content: "\f11d"; }
+.os-openbsd:before { content: "\f11e"; }
+.os-opensuse:before { content: "\f11f"; }
+.os-pop-os:before { content: "\f120"; }
+.os-raspberry-pi:before { content: "\f121"; }
+.os-redhat:before { content: "\f122"; }
+.os-rocky-linux:before { content: "\f123"; }
+.os-sabayon:before { content: "\f124"; }
+.os-slackware:before { content: "\f125"; }
+.os-slackware-inverse:before { content: "\f126"; }
+.os-snappy:before { content: "\f127"; }
+.os-solus:before { content: "\f128"; }
+.os-tux:before { content: "\f129"; }
+.os-ubuntu:before { content: "\f12a"; }
+.os-ubuntu-inverse:before { content: "\f12b"; }
+.os-void:before { content: "\f12c"; }
+.os-win10:before { content: "\f12d"; }
+.os-zorin:before { content: "\f12e"; }
+    </style>
+
+    <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script>
+      function toggleCharacters() {
+        var body = document.getElementsByTagName('body')[0];
+        body.className = body.className === 'characters-off' ? '' : 'characters-off';
+      }
+    </script>
+  </head>
+
+  <body class="characters-off">
+    <div id="page" class="container">
+      <header>
+        <h1>osi contains 47 glyphs:</h1>
+        <a onclick="toggleCharacters(); return false;" href="#">Toggle Preview Characters</a>
+      </header>
+
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-almalinux" class="os-almalinux"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-almalinux" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf100;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-alpine" class="os-alpine"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-alpine" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf101;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-aosc" class="os-aosc"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-aosc" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf102;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-apple" class="os-apple"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-apple" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf103;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-archlabs" class="os-archlabs"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-archlabs" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf104;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-archlinux" class="os-archlinux"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-archlinux" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf105;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-artix" class="os-artix"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-artix" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf106;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-budgie" class="os-budgie"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-budgie" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf107;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-centos" class="os-centos"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-centos" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf108;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-coreos" class="os-coreos"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-coreos" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf109;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-debian" class="os-debian"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-debian" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-deepin" class="os-deepin"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-deepin" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-devuan" class="os-devuan"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-devuan" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-docker" class="os-docker"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-docker" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10d;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-elementary" class="os-elementary"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-elementary" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10e;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-fedora" class="os-fedora"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-fedora" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10f;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-fedora-inverse" class="os-fedora-inverse"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-fedora-inverse" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf110;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-ferris" class="os-ferris"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-ferris" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf111;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-flathub" class="os-flathub"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-flathub" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf112;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-freebsd" class="os-freebsd"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-freebsd" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf113;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-gentoo" class="os-gentoo"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-gentoo" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf114;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-gnu-guix" class="os-gnu-guix"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-gnu-guix" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf115;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-illumos" class="os-illumos"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-illumos" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf116;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-kali-linux" class="os-kali-linux"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-kali-linux" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf117;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-linuxmint" class="os-linuxmint"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-linuxmint" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf118;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-linuxmint-inverse" class="os-linuxmint-inverse"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-linuxmint-inverse" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf119;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-mageia" class="os-mageia"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-mageia" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-mandriva" class="os-mandriva"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-mandriva" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-manjaro" class="os-manjaro"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-manjaro" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-nixos" class="os-nixos"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-nixos" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11d;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-openbsd" class="os-openbsd"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-openbsd" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11e;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-opensuse" class="os-opensuse"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-opensuse" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11f;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-pop-os" class="os-pop-os"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-pop-os" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf120;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-raspberry-pi" class="os-raspberry-pi"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-raspberry-pi" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf121;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-redhat" class="os-redhat"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-redhat" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf122;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-rocky-linux" class="os-rocky-linux"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-rocky-linux" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf123;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-sabayon" class="os-sabayon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-sabayon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf124;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-slackware" class="os-slackware"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-slackware" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf125;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-slackware-inverse" class="os-slackware-inverse"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-slackware-inverse" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf126;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-snappy" class="os-snappy"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-snappy" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf127;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-solus" class="os-solus"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-solus" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf128;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-tux" class="os-tux"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-tux" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf129;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-ubuntu" class="os-ubuntu"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-ubuntu" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-ubuntu-inverse" class="os-ubuntu-inverse"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-ubuntu-inverse" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-void" class="os-void"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-void" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-win10" class="os-win10"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-win10" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12d;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="os-zorin" class="os-zorin"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".os-zorin" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf12e;" />
+        </div>
+      </div>
+      
+
+      <footer>
+        Made with love using <a href="http://fontcustom.com">Font Custom</a>.
+      </footer>
+    </div>
+  </body>
+</html>
