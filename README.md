@@ -8,9 +8,6 @@ OSI is an icon font containing logos of popular linux distributions and other op
 
 ## Installation ##
 
-Install the font by downloading and unpacking the latest release's zip manually or installing it from npm.
-
-	npm install osi
 
 To use the font, include `assets/osi.css` as well as the
 fonts in your project and use the CSS classes listed below.
