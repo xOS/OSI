@@ -1,4 +1,4 @@
-# osi #
+# OSI #
 
 ![Available logos](assets/preview.png)
 
