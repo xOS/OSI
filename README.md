@@ -68,11 +68,15 @@ Available logos are:
 | Solus         | `os-solus`                 | `<span class="os-solus"></span>`        |
 | Tux           | `os-tux`                   | `<span class="os-tux"></span>`          |
 | Ubuntu        | `os-ubuntu[-inverse]`      | `<span class="os-ubuntu"></span>`       |
+| GNU Guix          | `os-gnu-guix`                  | `<span class="os-gnu-guix"></span>`         |
+| Snappy      | `os-snappy`                 | `<span class="os-snappy"></span>`        |
+| Flathub      | `os-flathub`                 | `<span class="os-flathub"></span>`        |
 | Void          | `os-void`                  | `<span class="os-void"></span>`         |
 | Zorin OS      | `os-zorin`                 | `<span class="os-zorin"></span>`        |
 | Windows 10      | `os-win10`                 | `<span class="os-win10"></span>`        |
 
 ## Dependencies ##
+
 * This project uses [fontcustom](https://github.com/FontCustom/fontcustom) to compile vectors into fonts.
 * [wkhtmltopdf](http://wkhtmltopdf.org/) is used to generate this readme's preview image.
 
