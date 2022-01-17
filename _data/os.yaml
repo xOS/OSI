@@ -1,4 +1,4 @@
-version: "0.20"
+version: "0.21"
 icons:
     - alpine
     - aosc
@@ -27,6 +27,7 @@ icons:
     - nixos
     - openbsd
     - opensuse
+    - parrot
     - pop-os
     - raspberry-pi
     - redhat
