@@ -1,16 +1,18 @@
 version: "0.21"
 icons:
+    - almalinux
     - alpine
     - aosc
-    - apple
     - archlabs
     - archlinux
     - artix
+    - apple
     - budgie
     - centos
     - coreos
     - debian
     - deepin
+    - devuan
     - docker
     - elementary
     - fedora
@@ -19,6 +21,7 @@ icons:
     - freebsd
     - gentoo
     - illumos
+    - kali-linux
     - linuxmint
     - linuxmint-inverse
     - mageia
@@ -31,6 +34,7 @@ icons:
     - pop-os
     - raspberry-pi
     - redhat
+    - rocky-linux
     - sabayon
     - slackware
     - slackware-inverse
