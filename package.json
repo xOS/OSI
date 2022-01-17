@@ -1,26 +1,26 @@
 {
-  "name": "osi",
-  "description": "An icon font providing popular linux distros' logos",
-  "version": "0.18.0",
-  "style": "assets/osi.css",
-  "authors": [
-    "佩佩 (https://github.com/xOS)"
-  ],
-  "license": "Unlicense",
-  "homepage": "https://github.com/xOS/OSI",
-  "repository": "https://github.com/xOS/OSI.git",
-  "scripts": {
-    "build": "sh compile.sh",
-    "prepare": "npm run build"
-  },
-  "files": [
-    "assets/osi.css",
-    "assets/osi.eot",
-    "assets/osi.svg",
-    "assets/osi.ttf",
-    "assets/osi.woff",
-    "assets/osi.woff2",
-    "vectors/*",
-    "README.md"
-  ]
+    "name": "os-icon",
+    "description": "An icon font providing popular linux distros' logos",
+    "version": "0.20.0",
+    "style": "assets/osi.css",
+    "authors": [
+        "佩佩 (https://github.com/xOS)"
+    ],
+    "license": "Unlicense",
+    "homepage": "https://github.com/xOS/OSI",
+    "repository": "https://github.com/xOS/OSI.git",
+    "scripts": {
+        "build": "sh compile.sh",
+        "prepare": "npm run build"
+    },
+    "files": [
+        "assets/osi.css",
+        "assets/osi.eot",
+        "assets/osi.svg",
+        "assets/osi.ttf",
+        "assets/osi.woff",
+        "assets/osi.woff2",
+        "vectors/*",
+        "README.md"
+    ]
 }

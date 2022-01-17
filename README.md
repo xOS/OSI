@@ -8,6 +8,11 @@ OSI is an icon font containing logos of popular linux distributions and other op
 
 ## Installation ##
 
+Install the font by downloading and unpacking the latest release's zip manually or installing it from npm.
+
+```bash
+npm install os-icon
+```
 
 To use the font, include `assets/osi.css` as well as the
 fonts in your project and use the CSS classes listed below.
@@ -75,12 +80,18 @@ Available logos are:
 After making changes to one of the vectors, the fonts have to be recompiled.
 From the root directory, run:
 
-	fontcustom compile
+```bash
+fontcustom compile
+```
 
 To compile everything including the readme's `preview.png`, run:
 
-	sh ./compile.sh
+```bash
+sh ./compile.sh
+```
 
 To stage the new revision:
 
-	git add assets .fontcustom-manifest.json
+```bash
+git add assets .fontcustom-manifest.json
+```
