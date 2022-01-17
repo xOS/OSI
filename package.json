@@ -1,7 +1,7 @@
 {
     "name": "os-icon",
     "description": "An icon font providing popular linux distros' logos",
-    "version": "0.20.0",
+    "version": "0.21.0",
     "style": "assets/osi.css",
     "authors": [
         "佩佩 (https://github.com/xOS)"

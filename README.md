@@ -21,7 +21,7 @@ fonts in your project and use the CSS classes listed below.
 
 Alternatively just link to it using a CDN such as [jsDelivr](//jsdelivr.com):
 
-	<link href="//cdn.jsdelivr.net/gh/xOS/OSI@v0.20/assets/osi.css" rel="stylesheet">
+	<link href="//cdn.jsdelivr.net/gh/xOS/OSI@v0.21/assets/osi.css" rel="stylesheet">
 
 ## Usage ##
 
@@ -58,6 +58,7 @@ Available logos are:
 | NixOS         | `os-nixos`                 | `<span class="os-nixos"></span>`        |
 | OpenBSD       | `os-openbsd`               | `<span class="os-openbsd"></span>`      |
 | OpenSUSE      | `os-opensuse`              | `<span class="os-opensuse"></span>`     |
+| Parrot OS     | `os-parrot`                | `<span class="os-parrot"></span>`       |
 | Pop!_OS       | `os-pop-os`                | `<span class="os-pop-os"></span>`       |
 | Raspberry Pi  | `os-raspberry-pi`          | `<span class="os-raspberry-pi"></span>` |
 | Red Hat       | `os-redhat`                | `<span class="os-redhat"></span>`       |

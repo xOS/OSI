@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "a954970530209496a944f6e16b3b619edb5bc4a083234d0bf7f8a8473f751442",
-    "current": "a954970530209496a944f6e16b3b619edb5bc4a083234d0bf7f8a8473f751442"
+    "previous": "5f341a958485946c4beece9397616088ca27d694c88eb9c6b3bbaf543f420016",
+    "current": "5f341a958485946c4beece9397616088ca27d694c88eb9c6b3bbaf543f420016"
   },
   "fonts": [
     "assets/osi.ttf",
@@ -138,6 +138,10 @@
     "opensuse": {
       "codepoint": 61727,
       "source": "vectors/opensuse.svg"
+    },
+    "parrot": {
+      "codepoint": 61743,
+      "source": "vectors/parrot.svg"
     },
     "pop-os": {
       "codepoint": 61728,
