@@ -1,6 +1,6 @@
-assets/*
+!assets/*
 !assets/preview.png
-.fontcustom-manifest.json
+!.fontcustom-manifest.json
 *.zip
 *.tgz
 Gemfile.lock
