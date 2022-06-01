@@ -21,7 +21,7 @@ fonts in your project and use the CSS classes listed below.
 
 Alternatively just link to it using a CDN such as [jsDelivr](//jsdelivr.com):
 
-	<link href="//fastly.jsdelivr.net/gh/xOS/OSI@v0.21/assets/osi.css" rel="stylesheet">
+	<link href="//fastly.jsdelivr.net/gh/xOS/OSI@v0.22.0/assets/osi.css" rel="stylesheet">
 
 ## Usage ##
 
