@@ -1,14 +1,14 @@
 {
     "name": "os-icon",
     "description": "An icon font providing popular linux distros' logos",
-    "version": "0.21.1",
+    "version": "0.22.0",
     "style": "assets/osi.css",
     "authors": [
         "佩佩 (https://github.com/xOS)"
     ],
     "license": "Unlicense",
-    "homepage": "https://github.com/xOS/OSI",
-    "repository": "https://github.com/xOS/OSI.git",
+    "homepage": "https://github.com/xOS/osi",
+    "repository": "https://github.com/xOS/osi.git",
     "scripts": {
         "build": "sh compile.sh",
         "prepare": "npm run build"

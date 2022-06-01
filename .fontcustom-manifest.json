@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "5f341a958485946c4beece9397616088ca27d694c88eb9c6b3bbaf543f420016",
-    "current": "5f341a958485946c4beece9397616088ca27d694c88eb9c6b3bbaf543f420016"
+    "previous": "11dd52b193dc04f7733cfeebafdd31a25cb82c84a6dc31188cbf68d1ea72f41b",
+    "current": "11dd52b193dc04f7733cfeebafdd31a25cb82c84a6dc31188cbf68d1ea72f41b"
   },
   "fonts": [
     "assets/osi.ttf",
@@ -70,6 +70,10 @@
     "elementary": {
       "codepoint": 61710,
       "source": "vectors/elementary.svg"
+    },
+    "endeavour": {
+      "codepoint": 61744,
+      "source": "vectors/endeavour.svg"
     },
     "fedora": {
       "codepoint": 61711,

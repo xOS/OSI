@@ -21,7 +21,7 @@ fonts in your project and use the CSS classes listed below.
 
 Alternatively just link to it using a CDN such as [jsDelivr](//jsdelivr.com):
 
-	<link href="//cdn.jsdelivr.net/gh/xOS/OSI@v0.21/assets/osi.css" rel="stylesheet">
+	<link href="//fastly.jsdelivr.net/gh/xOS/OSI@v0.21/assets/osi.css" rel="stylesheet">
 
 ## Usage ##
 
@@ -33,10 +33,10 @@ Available logos are:
 | Alma Linux    | `os-almalinux`             | `<span class="os-almalinux"></span>`    |
 | Alpine        | `os-alpine`                | `<span class="os-alpine"></span>`       |
 | AOSC OS       | `os-aosc`                  | `<span class="os-aosc"></span>`         |
+| Apple         | `os-apple`                 | `<span class="os-apple"></span>`        |
 | Arch Linux    | `os-archlinux`             | `<span class="os-archlinux"></span>`    |
 | ArchLabs      | `os-archlabs`              | `<span class="os-archlabs"></span>`     |
 | Artix Linux   | `os-artix`                 | `<span class="os-artix"></span>`        |
-| Apple         | `os-apple`                 | `<span class="os-apple"></span>`        |
 | Budgie        | `os-budgie`                | `<span class="os-budgie"></span>`       |
 | CentOS        | `os-centos`                | `<span class="os-centos"></span>`       |
 | CoreOS        | `os-coreos`                | `<span class="os-coreos"></span>`       |
@@ -45,35 +45,34 @@ Available logos are:
 | Devuan        | `os-devuan`                | `<span class="os-devuan"></span>`       |
 | Docker        | `os-docker`                | `<span class="os-docker"></span>`       |
 | elementary OS | `os-elementary`            | `<span class="os-elementary"></span>`   |
+| Endeavour OS  | `os-endeavour`             | `<span class="os-endeavour"></span>`    |
 | Fedora        | `os-fedora[-inverse]`      | `<span class="os-fedora"></span>`       |
 | Ferris        | `os-ferris`                | `<span class="os-ferris"></span>`       |
+| Flathub       | `os-flathub`               | `<span class="os-flathub"></span>`      |
 | FreeBSD       | `os-freebsd`               | `<span class="os-freebsd"></span>`      |
 | Gentoo        | `os-gentoo`                | `<span class="os-gentoo"></span>`       |
+| GNU Guix      | `os-gnu-guix`              | `<span class="os-gnu-guix"></span>`     |
 | illumos       | `os-illumos`               | `<span class="os-illumos"></span>`      |
 | Kali Linux    | `os-kali-linux`            | `<span class="os-kali-linux"></span>`   |
 | Linux Mint    | `os-linuxmint[-inverse]`   | `<span class="os-linuxmint"></span>`    |
 | Mageia        | `os-mageia`                | `<span class="os-mageia"></span>`       |
-| Manjaro       | `os-manjaro`               | `<span class="os-manjaro"></span>`      |
 | Mandriva      | `os-mandriva`              | `<span class="os-mandriva"></span>`     |
+| Manjaro       | `os-manjaro`               | `<span class="os-manjaro"></span>`      |
 | NixOS         | `os-nixos`                 | `<span class="os-nixos"></span>`        |
 | OpenBSD       | `os-openbsd`               | `<span class="os-openbsd"></span>`      |
 | OpenSUSE      | `os-opensuse`              | `<span class="os-opensuse"></span>`     |
-| Parrot OS     | `os-parrot`                | `<span class="os-parrot"></span>`       |
 | Pop!_OS       | `os-pop-os`                | `<span class="os-pop-os"></span>`       |
 | Raspberry Pi  | `os-raspberry-pi`          | `<span class="os-raspberry-pi"></span>` |
 | Red Hat       | `os-redhat`                | `<span class="os-redhat"></span>`       |
 | Rocky Linux   | `os-rocky-linux`           | `<span class="os-rocky-linux"></span>`  |
 | Sabayon       | `os-sabayon`               | `<span class="os-sabayon"></span>`      |
 | Slackware     | `os-slackware[-inverse]`   | `<span class="os-slackware"></span>`    |
+| Snappy        | `os-snappy`                | `<span class="os-snappy"></span>`       |
 | Solus         | `os-solus`                 | `<span class="os-solus"></span>`        |
 | Tux           | `os-tux`                   | `<span class="os-tux"></span>`          |
 | Ubuntu        | `os-ubuntu[-inverse]`      | `<span class="os-ubuntu"></span>`       |
-| GNU Guix          | `os-gnu-guix`                  | `<span class="os-gnu-guix"></span>`         |
-| Snappy      | `os-snappy`                 | `<span class="os-snappy"></span>`        |
-| Flathub      | `os-flathub`                 | `<span class="os-flathub"></span>`        |
 | Void          | `os-void`                  | `<span class="os-void"></span>`         |
 | Zorin OS      | `os-zorin`                 | `<span class="os-zorin"></span>`        |
-| Windows 10      | `os-win10`                 | `<span class="os-win10"></span>`        |
 
 ## Dependencies ##
 
